@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ed" />
+    <meta name="description" content="오늘 배운 내용을 편하게 다시 풀어보는 복습 노트입니다." />
+    <title>복습 노트</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="복습 노트 처음으로">
+        <span class="brand-mark" aria-hidden="true">ㄱ</span>
+        <span>복습 노트</span>
+      </a>
+      <span class="top-note">차근차근, 내 속도로</span>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <p class="eyebrow"><span class="dot"></span> 오늘의 학습 정리</p>
+        <h1>배운 내용을<br /><em>다시 꺼내 봐요.</em></h1>
+        <p class="intro-copy">문제를 풀고 답을 확인하면서<br class="mobile-break" /> 기억을 단단하게 만들어 보세요.</p>
+      </section>
+
+      <section class="workspace" aria-label="복습 문제">
+        <aside class="side-panel">
+          <div class="panel-heading">
+            <span class="tiny-label">복습 주제</span>
+            <span class="topic-count" id="topic-count">0개</span>
+          </div>
+          <nav class="topic-list" id="topic-list" aria-label="주제 선택"></nav>
+          <div class="side-divider"></div>
+          <div class="session-card">
+            <span class="tiny-label">이번 복습</span>
+            <div class="session-score"><strong id="solved-count">0</strong><span> / </span><span id="total-count">0</span></div>
+            <div class="progress-track" role="progressbar" aria-label="푼 문제 수" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track"><span id="progress-fill"></span></div>
+            <p id="progress-caption">한 문제씩 시작해 봐요.</p>
+          </div>
+          <button class="text-button" id="reset-progress" type="button">진행 기록 지우기</button>
+        </aside>
+
+        <article class="question-panel" aria-live="polite">
+          <div class="question-topline">
+            <span class="question-group" id="question-group">주제</span>
+            <span class="question-number" id="question-number">01 <span>/ 00</span></span>
+          </div>
+          <div class="question-progress"><span id="question-progress-fill"></span></div>
+          <div class="question-content">
+            <p class="question-kind" id="question-kind">객관식</p>
+            <h2 id="question-prompt">문제를 불러오는 중입니다.</h2>
+            <pre id="question-code" class="code-block" hidden><code></code></pre>
+            <div id="answer-area" class="answer-area"></div>
+            <div id="feedback" class="feedback" hidden aria-live="assertive"></div>
+            <section id="completion-card" class="completion-card" hidden aria-labelledby="completion-title">
+              <p class="question-kind">복습 마무리</p>
+              <h3 id="completion-title">모든 문제를 확인했어요.</h3>
+              <p class="completion-copy">이번 복습에서 다룬 내용을 가볍게 정리해 봅니다.</p>
+              <div class="recap-grid">
+                <div><span>01</span><strong>데이터베이스</strong><p>SQL로 데이터를 조회하고, 조건·정렬·집계 연산의 흐름을 살펴봤어요.</p></div>
+                <div><span>02</span><strong>모델과 관계</strong><p>Django 모델, ORM, 관계 설정과 마이그레이션이 어떻게 이어지는지 돌아봤어요.</p></div>
+                <div><span>03</span><strong>웹 애플리케이션</strong><p>요청과 응답, 폼 검증, 템플릿, 정적 파일과 미디어 처리 개념을 복습했어요.</p></div>
+              </div>
+            </section>
+          </div>
+          <div class="question-actions">
+            <button class="button button-quiet" id="prev-question" type="button">← 이전</button>
+            <div class="action-right">
+              <button class="button button-outline" id="shuffle-questions" type="button" title="현재 주제의 순서를 섞습니다">순서 섞기</button>
+              <button class="button button-primary" id="check-answer" type="button">답 확인하기 <span aria-hidden="true">↗</span></button>
+              <button class="button button-primary" id="next-question" type="button" hidden>다음 문제 <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="page-footer">
+        <span>복습은 짧게, 자주.</span>
+        <span id="footer-total">문제 불러오는 중</span>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
